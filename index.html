@@ -1,0 +1,28 @@
+﻿<html>
+<head>
+<meta name= "robots" content = "noindex, nofollow" /> 
+<title>Index</title>
+</head>
+<body>
+    <a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\cgi.map&layer=lat_rob_region&layer=lat_kaim_region">MapServer CGI</a>
+    
+    <hr>
+    
+    <a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wmsServer.map&layer=lat_rob_region">MapServer WMS Server</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wmsServer.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities">GetCapabilities
+    </a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wmsServer.map&SERVICE=WMS&VERSION=1.1.1&STYLES=&REQUEST=GetMap&LAYERS=lat_rob_region&SRS=EPSG:3059&BBOX=313187.4,146161.56,766469.92,470367.64&WIDTH=800&HEIGHT=600&FORMAT=image/png">GetMap</a><br />
+    <a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wmsClient.map&layer=lat_kaim_region">MapServer WMS Client</a><br />
+    <a target="_blank" href="wmsOpenLayers.html">MapServer WMS + Openlayers Client</a><br />
+    
+    <hr>
+
+    <a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wfsServer.map&layer=lat_rob_region">MapServer WFS Server</a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wfsServer.map&SERVICE=WFS&VERSION=1.0.0&REQUEST=GetCapabilities">GetCapabilities
+    </a><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wfsServer.map&SERVICE=WFS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=lat_rob_region&MAXFEATURES=100">GetFeature
+    </a><br />
+    <a target="_blank" href="http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wfsClient.map">MapServer WFS Client</a><br />
+    <a target="_blank" href="wfsOpenLayers.html">MapServer WFS + Openlayers Client</a><br />
+</body>
+</html>

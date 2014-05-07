@@ -1,0 +1,298 @@
+MAP
+    # MapServer WMS server
+
+    CONFIG "MS_ERRORFILE" "C:/MS4W/ms4w/apache/htdocs/gis/tmp/wms_server.txt"
+    DEBUG 5
+    NAME latvijas_karte
+    STATUS ON
+    SIZE 800 500
+    EXTENT 313187.4 146161.56 766469.92 470367.64
+    UNITS METERS
+    SHAPEPATH "shapefiles"
+    IMAGECOLOR 155 155 155
+
+    REFERENCE
+        IMAGE 'img/reference_clean.png'
+        SIZE 400 250
+        EXTENT 313187.4 146161.56 766469.92 470367.64
+        STATUS ON
+        MINBOXSIZE 1
+        MAXBOXSIZE 300
+        COLOR -1 -1 -1
+        OUTLINECOLOR 0 0 0
+        MARKERSIZE 8
+        MARKER 'star'
+    END
+   
+    WEB
+        TEMPLATE "cgi.html"
+        IMAGEPATH "C:/MS4W/ms4w/apache/htdocs/gis/output/"
+        IMAGEURL "/gis/output/"
+        
+        METADATA
+            "wms_title"             "MapServer WMS"
+            "wms_onlineresource"    "http://localhost:1025/cgi-bin/mapserv.exe?map=C:\MS4W\ms4w\Apache\htdocs\gis\wmsServer.map"
+            "wms_enable_request"    "*"
+            "wms_srs"               "EPSG:3059"
+        END
+    END
+
+    PROJECTION
+        "init=epsg:3059"
+    END
+    
+# Latvia body
+    LAYER
+    NAME "lat_rob_region"
+    DATA lat_rob_region
+    STATUS ON
+    TYPE POLYGON
+        CLASS
+            NAME "Latvija"
+            STYLE
+                COLOR 0 255 0
+            END
+        END
+    END
+
+# large cities
+    LAYER
+        NAME "lat_pill_region"
+        DATA lat_pill_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            STYLE
+                COLOR 255 0 0
+            END
+        END
+    END  
+   
+# small cities
+    LAYER
+        NAME "lat_pilm_region"
+        DATA lat_pilm_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            STYLE
+                COLOR 255 0 0
+            END
+        END
+    END  
+    
+# cities
+    LAYER
+        NAME "lat_pilv_region"
+        DATA lat_pilv_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            NAME "Pilsetas"
+            STYLE
+                COLOR 255 0 0
+            END
+        END
+    END  
+   
+# Largest rivers
+    LAYER
+        NAME "lat_upld_region"
+        DATA lat_upld_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            NAME "Upes"
+            STYLE
+                COLOR 0 122 255
+            END
+        END
+    END 
+    
+# Large rivers
+    LAYER
+        NAME "lat_uplv_polyline"
+        DATA lat_uplv_polyline
+        STATUS ON
+        TYPE LINE
+        CLASS
+            STYLE
+                COLOR 0 122 255
+            END
+        END
+    END 
+    
+# Rivers
+    LAYER
+        NAME "lat_upv_polyline"
+        DATA lat_upv_polyline
+        STATUS ON
+        TYPE LINE
+        CLASS
+            STYLE
+                COLOR 0 122 255
+            END
+        END
+    END 
+
+# Large lakes
+    LAYER
+        NAME "lat_ezl_region"
+        DATA lat_ezl_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            NAME "Ezeri"
+            STYLE
+                COLOR 0 0 255
+            END
+        END
+    END 
+    
+# lakes
+    LAYER
+        NAME "lat_ezv_region"
+        DATA lat_ezv_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            STYLE
+                COLOR 0 0 255
+            END
+        END
+    END  
+   
+# islands in rivers
+    LAYER
+        NAME "lat_up_s_region"
+        DATA lat_up_s_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            NAME "Salas upes"
+            STYLE
+                COLOR 255 0 0
+            END
+        END
+    END  
+   
+# neighbour countries
+    LAYER
+        NAME "lat_kaim_region"
+        DATA lat_kaim_region
+        STATUS ON
+        TYPE POLYGON
+        CLASS
+            NAME "Kaiminvalstis"
+            STYLE
+                COLOR 120 255 0
+            END
+        END
+    END
+
+# railways
+    LAYER
+        NAME "railways"
+        DATA railways
+        STATUS ON
+        TYPE LINE
+        CLASS
+            NAME "Dzelzcels"
+            STYLE
+                COLOR 255 0 0
+            END
+        END
+    END
+
+# roads
+    LAYER
+        NAME "roads"
+        DATA roads
+        STATUS ON
+        TYPE LINE
+        CLASS
+            NAME "Celi"
+            STYLE
+                COLOR 122 122 122
+            END
+        END
+    END
+    
+# administrative regions
+    LAYER
+        NAME "lat_adm_region"
+        DATA lat_adm_region
+        STATUS ON
+        TYPE LINE
+        CLASS
+            NAME "Adm. regioni"
+            STYLE
+                COLOR 0 0 0
+            END
+        END
+    END
+    
+# objects    
+    LAYER
+        NAME "objects"
+        DATA objects
+        STATUS ON
+        TYPE POINT
+
+        CLASS
+            NAME "Objekti"
+            STYLE
+                SYMBOL "circleL"
+                SIZE 12
+                COLOR 0 0 0 #black
+            END
+            STYLE
+                SYMBOL "circleS"
+                SIZE 10
+                COLOR 255 122 0 #orange
+            END
+        END
+    END
+    
+# places    
+    LAYER
+        NAME "places"
+        DATA places
+        STATUS ON
+        TYPE POINT
+
+        CLASS
+            NAME "Apdz. vietas"
+            STYLE
+                SYMBOL "circleL"
+                SIZE 12
+                COLOR 0 0 0 #black
+            END
+            STYLE
+                SYMBOL "circleS"
+                SIZE 10
+                COLOR 255 200 0 #yellow
+            END
+        END
+    END
+    
+# large circle 
+    SYMBOL
+        NAME "circleL"
+        TYPE ellipse
+        FILLED true
+        POINTS
+            10 10
+        END
+    END
+    
+# small circle 
+    SYMBOL
+        NAME "circleS"
+        TYPE ellipse
+        FILLED true
+        POINTS
+            10 10
+        END
+    END
+END

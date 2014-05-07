@@ -1,0 +1,88 @@
+﻿<!-- MapServer Template -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/transitional.dtd">
+<html  dir="ltr" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name= "robots" content = "noindex, nofollow" /> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MapServerCGI</title>
+    <link rel="stylesheet" type="text/css" href="../gis/css/mapServerCGI.css">    
+    <script type="text/javascript" src="../gis/js/mapServerCGI.js"></script>
+</head>
+<body onload="init()">
+    <form method="GET" action="mapserv.exe">
+        <input type="hidden" name="map" value="[map]">
+        <input type="hidden" name="imgext" value="[mapext]">
+        <input type="hidden" name="imgxy" value="149.5 199.5">
+        <input type="hidden" name="program" value="[mapserv.exe]">
+        <!--  
+        <input type="hidden" name="htmlroot" value="[htmlroot]">
+        <input type="hidden" name="map_web" value="[map_web]">
+        -->
+        <div id="container">
+            <div id="left">
+                <input type="image" name="img" src="[img]" style="border:1; border: 1px solid black; width:800; height:500">
+            </div>
+            <div id="right">
+                <p class="title bold">Atskaites karte:</p>
+                <input type="image" name="ref" src="[ref]" border="0" />
+                <p class="title bold">Tālummaiņa:</p>
+                <select name="zoom" size="5">
+                    <option value="3" [zoom_3_select]> Tuvināt 3 reizes
+                    <option value="2" [zoom_2_select]> Tuvināt 2 reizes
+                    <option value="1" [zoom_1_select]> Centrēt karti
+                    <option value="-2" [zoom_-2_select]> Attālināt 2 reizes
+                    <option value="-3" [zoom_-3_select]> Attālināt 3 reizes
+                </select>
+                <p class="title bold">Slāņi:</p>
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <input type="checkbox" name="layer" id="lat_rob_region" value="lat_rob_region" [lat_rob_region_check] />
+                            <label for="lat_rob_region">Latvijas republika</label><br />
+                            <input type="checkbox" name="layer" id="lat_adm_region" value="lat_adm_region"[lat_adm_region_check] />
+                            <label for="lat_adm_region">Adm. reģioni</label><br />
+                            <input type="checkbox" name="layer" id="lat_kaim_region" value="lat_kaim_region"[lat_kaim_region_check] />
+                            <label for="lat_kaim_region">Kaimiņvalstis</label><br />  
+                            <input type="checkbox" name="layer" id="objects" value="objects" [objects_check] />
+                            <label for="objects">Objekti</label><br />
+                            <input type="checkbox" name="layer" id="places" value="places" [places_check] />
+                            <label for="places">Apdz. vietas</label><br />
+                            <input type="checkbox" name="layer" id="railways" value="railways" [railways_check] />
+                            <label for="railways">Dzelzceļš</label><br />
+                            <input type="checkbox" name="layer" id="roads" value="roads" [roads_check] />
+                            <label for="roads">Ceļi</label><br /><br />  
+                        </td>
+                        <td valign="top">
+                            <input type="checkbox" name="layer" id="switchCitiesCheckbox" onchange="switchCities()" />
+                            <label for="switchCitiesCheckbox" class="bold">Apdzīvotas vietas:</label><br />
+                            <input type="checkbox" name="layer" id="lat_pilm_region" value="lat_pilm_region" [lat_pilm_region_check] />
+                            <label for="lat_pilm_region">Mazas pilsētas</label><br />
+                            <input type="checkbox" name="layer" id="lat_pilv_region" value="lat_pilv_region" [lat_pilv_region_check] />
+                            <label for="lat_pilv_region">Pilsētas</label><br />
+                            <input type="checkbox" name="layer" id="lat_pill_region" value="lat_pill_region" [lat_pill_region_check] />
+                            <label for="lat_pill_region">Lielas pilsētas</label><br /><br />
+                        </td>
+                        <td valign="top">
+                            <input type="checkbox" name="layer" id="switchWaterCheckbox" onchange="switchWater()" />
+                            <label for="switchWaterCheckbox" class="bold">Ūdeņi:</label><br />
+                            <input type="checkbox" name="layer" id="lat_ezv_region" value="lat_ezv_region" [lat_ezv_region_check] />
+                            <label for="lat_ezv_region">Ezeri</label><br />
+                            <input type="checkbox" name="layer" id="lat_ezl_region" value="lat_ezl_region" [lat_ezl_region_check] />
+                            <label for="lat_ezl_region">Lieli ezeri</label><br />
+                            <input type="checkbox" name="layer" id="lat_upv_polyline" value="lat_upv_polyline" [lat_upv_polyline_check] />
+                            <label for="lat_upv_polyline">Upes</label><br />
+                            <input type="checkbox" name="layer" id="lat_uplv_polyline" value="lat_uplv_polyline" [lat_uplv_polyline_check] />
+                            <label for="lat_uplv_polyline">Lielas upes</label><br />
+                            <input type="checkbox" name="layer" id="lat_upld_region" value="lat_upld_region" [lat_upld_region_check] />
+                            <label for="lat_upld_region">Lielākās upes</label><br />
+                            <input type="checkbox" name="layer" id="lat_up_s_region" value="lat_up_s_region" [lat_up_s_region_check] />
+                            <label for="lat_up_s_region">Salas upēs</label><br />
+                        </td>
+                    </tr>
+                </table>
+                <center><input type="submit" name="submit" value="Atsvaidzināt"></center>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

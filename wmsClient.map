@@ -1,0 +1,37 @@
+MAP
+    # MapServer WMS client
+
+    CONFIG "MS_ERRORFILE" "C:/MS4W/ms4w/apache/htdocs/gis/tmp/wms_client.txt"
+    DEBUG 5
+    NAME latvijas_karte
+    STATUS ON
+    SIZE 800 500
+    EXTENT 313187.4 146161.56 766469.92 470367.64
+    UNITS METERS
+    SHAPEPATH "shapefiles"
+    IMAGECOLOR 155 155 155
+
+	WEB
+        TEMPLATE "cgi.html"
+        IMAGEPATH "C:/MS4W/ms4w/apache/htdocs/gis/output/"
+        IMAGEURL "/gis/output/"
+    END
+	
+	LAYER
+		CONNECTION "http://localhost:1025/cgi-bin/mapserv.exe?map=C:/MS4W/ms4w/apache/htdocs/gis/wmsServer.map"
+		CONNECTIONTYPE WMS
+		METADATA
+			"wms_srs"             "EPSG:3059"
+			"wms_name"            "lat_rob_region"
+			#"wms_name"           "lat_rob_region,lat_upld_region,lat_uplv_polyline,lat_upv_polyline,lat_ezl_region,lat_ezv_region,lat_adm_region,lat_pill_region,lat_pilm_region,lat_pilv_region,lat_kaim_region"
+			"wms_server_version"  "1.1.1"
+			"wms_format"          "image/gif"
+		END
+		
+		NAME "Latvija"
+		DEBUG ON
+		TYPE RASTER
+		STATUS ON
+	END
+   
+END

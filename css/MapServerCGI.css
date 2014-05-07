@@ -1,0 +1,24 @@
+#left
+{
+    padding: 3px;
+    display: block;
+    float: left;
+}
+
+#right
+{
+    padding: 3px;
+    display: block;
+    float: left;
+}
+
+p.title
+{
+    text-align: center;
+    background-color: #ccc;
+}
+
+.bold
+{
+    font-weight: bold;
+}

@@ -1,0 +1,4 @@
+tmp/*.
+output/*
+shapefiles_backup/*
+shapefiles_3857/*
